@@ -18,7 +18,7 @@ const Navbar: NextComponentType = () => {
   const navigation = [
     {
       name: formatMessage({ defaultMessage: "Read" }),
-      href: "#",
+      href: paths.sora.list,
       current: true,
     },
     {

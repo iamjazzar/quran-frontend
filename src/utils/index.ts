@@ -1,6 +1,6 @@
 import { NextRouter } from 'next/router';
 import { FormWriterType } from 'types/generic';
-import cookieCutter from "cookie-cutter";
+import { setCookies } from 'cookies-next';
 
 export function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
@@ -20,7 +20,8 @@ export function getFormData(data: FormWriterType): FormData {
 
 
 export function switchLanguage(newLanguage: string, router: NextRouter) {
-  cookieCutter.set("NEXT_LOCALE", newLanguage, { path: "/" });
+  setCookies('NEXT_LOCALE', newLanguage, { path: "/" });
+
   router.push(
     {
       pathname: router.pathname,

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NextComponentType } from "next";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import ThemeButton from "components/Buttons/ThemeButton";
@@ -9,6 +9,7 @@ import { classNames } from "utils";
 import Link from "next/link";
 import paths from "utils/paths";
 import Fasl from "components/SVGs/Fasl";
+import LanguageButton from "components/Buttons/LanguageButton";
 
 const Navbar: NextComponentType = () => {
   const { formatMessage } = useIntl();
@@ -108,6 +109,7 @@ const Navbar: NextComponentType = () => {
                   </Disclosure.Button>
                 </div>
                 <div className="hidden lg:relative lg:z-10 ltr:lg:ml-4 rtl:lg:mr-4 lg:flex lg:items-center">
+                  <LanguageButton />
                   <ThemeButton />
                 </div>
               </div>

@@ -42,15 +42,15 @@ const ThemeButton: NextComponentType = () => {
         <Menu.Button
           className={classNames(
             theme === "system"
-              ? "bg-transparent text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400"
-              : "text-sky-400 bg-transparent hover:text-sky-500",
-            "inline-flex items-center p-1 border border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+              ? "text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400"
+              : "text-sky-400  hover:text-sky-500",
+            "inline-flex items-center p-1 border bg-transparent border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
           )}
         >
           <span className="sr-only">
             <FormattedMessage defaultMessage="Switch theme" />
           </span>
-          {resolvedTheme === "dark " ? (
+          {resolvedTheme === "dark" ? (
             <MoonIcon className="h-6 w-6" aria-hidden="true" />
           ) : (
             <SunIcon className="h-6 w-6" aria-hidden="true" />

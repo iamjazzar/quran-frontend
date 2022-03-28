@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { classNames } from "utils";
@@ -13,24 +13,32 @@ interface ILanguageSelector {
   data: IData[];
   label?: string;
   labelVisible?: boolean;
-  initialSelected?: number;
+  initialSelected?: (values: IData[]) => IData | undefined;
   onChange?: (value: string, router: NextRouter) => void;
 }
 
 const SimpleCustomSelectMenu = ({
   data,
   label,
-  initialSelected = 0,
+  initialSelected,
   onChange = () => {},
   labelVisible = true,
 }: ILanguageSelector) => {
   const router = useRouter();
-  const [selected, setSelected] = useState<IData>(data[initialSelected]);
+  const [selected, setSelected] = useState<IData>(data[0]);
+  console.log(selected);
 
   const onSelectionChange = (value: IData) => {
     setSelected(value);
     onChange(value.key, router);
   };
+
+  useEffect(() => {
+    if (initialSelected) {
+      const obj = initialSelected(data);
+      setSelected(obj || data[0]);
+    }
+  }, [router]);
 
   return (
     <Listbox value={selected} onChange={onSelectionChange}>

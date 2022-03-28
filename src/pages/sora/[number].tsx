@@ -32,6 +32,7 @@ const SoraDetail: NextPage<ISoraDetail> = ({ sora }) => {
 
   return (
     <>
+      <span className="sr-only">{sora.name_en}</span>
       <span className="sr-only">{sora.name_ar}</span>
       <span className="sr-only">{sora.clean_name_ar}</span>
       <div className="font-hafs text-3xl leading-loose">

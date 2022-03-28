@@ -155,10 +155,9 @@ const Footer: NextComponentType = () => {
                 labelVisible={false}
                 label={formatMessage({ defaultMessage: "Language" })}
                 onChange={switchLanguage}
-                initialSelected={[
-                  { key: "ar", text: "العربية" },
-                  { key: "en", text: "English" },
-                ].findIndex((obj) => obj.key === locale)}
+                initialSelected={(values) =>
+                  values.find((obj) => obj.key === locale)
+                }
                 data={[
                   { key: "ar", text: "العربية" },
                   { key: "en", text: "English" },

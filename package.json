@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run i18n && next build",
+    "lint:fix": "tsc --project ./tsconfig.json --noEmit && eslint ./src --ext .ts,.tsx --fix",
     "compile:i18n": "formatjs compile-folder --ast --format simple src/locales src/locales-compiled",
     "extract:i18n": "formatjs extract './src/{pages,components,layouts,utils}/**/*.{ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/locales/en.json",
     "i18n": "npm run extract:i18n && npm run compile:i18n",

@@ -1,11 +1,9 @@
 import { NextComponentType } from "next";
-import { ChevronDownIcon } from "@heroicons/react/solid";
 import { FormattedMessage, useIntl } from "react-intl";
 import SimpleCustomSelectMenu from "components/SelectMenus/SimpleCustomSelectMenu";
 import { switchLanguage } from "utils";
 import Link from "next/link";
 import paths from "utils/paths";
-import Fasl from "components/SVGs/Fasl";
 import GithubIcon from "components/SVGs/GithubIcon";
 import TwitterIcon from "components/SVGs/TwitterIcon";
 import InstagramIcon from "components/SVGs/InstagramIcon";

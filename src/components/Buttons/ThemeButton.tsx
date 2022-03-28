@@ -7,12 +7,30 @@ import {
 } from "@heroicons/react/outline";
 import { useTheme } from "next-themes";
 import { classNames } from "utils";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { NextComponentType } from "next";
 
 const ThemeButton: NextComponentType = () => {
-  const [mounted, setMounted] = useState(false);
+  const { formatMessage } = useIntl();
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const availableThemes = [
+    {
+      key: "light",
+      name: formatMessage({ defaultMessage: "Light" }),
+      Icon: SunIcon,
+    },
+    {
+      key: "dark",
+      name: formatMessage({ defaultMessage: "Dark" }),
+      Icon: MoonIcon,
+    },
+    {
+      key: "system",
+      name: formatMessage({ defaultMessage: "System" }),
+      Icon: DesktopComputerIcon,
+    },
+  ];
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
@@ -32,12 +50,11 @@ const ThemeButton: NextComponentType = () => {
           <span className="sr-only">
             <FormattedMessage defaultMessage="Switch theme" />
           </span>
-          {
-            {
-              dark: <MoonIcon className="h-6 w-6" aria-hidden="true" />,
-              light: <SunIcon className="h-6 w-6" aria-hidden="true" />,
-            }[resolvedTheme]
-          }
+          {resolvedTheme === "dark " ? (
+            <MoonIcon className="h-6 w-6" aria-hidden="true" />
+          ) : (
+            <SunIcon className="h-6 w-6" aria-hidden="true" />
+          )}
         </Menu.Button>
       </div>
 
@@ -50,77 +67,31 @@ const ThemeButton: NextComponentType = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 mt-4 divide-y divide-slate-300 dark:divide-slate-600">
-          <div>
-            <Menu.Item>
+        <Menu.Items className="absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 mt-4">
+          {availableThemes.map((option) => (
+            <Menu.Item key={option.key}>
               {({ active }) => (
                 <button
                   type="button"
-                  onClick={() => setTheme("light")}
+                  onClick={() => setTheme(option.key)}
                   className={classNames(
                     active ? "bg-slate-50 dark:bg-slate-600/30" : "",
-                    theme === "light" ? "text-sky-500" : "",
+                    theme === option.key ? "text-sky-500" : "",
                     "py-1.5 px-2 flex items-center text-sm w-full font-medium"
                   )}
                 >
-                  <SunIcon
+                  <option.Icon
                     className={classNames(
-                      theme === "light" ? "text-sky-500" : "text-gray-400",
+                      theme === option.key ? "text-sky-500" : "text-gray-400",
                       "ltr:mr-3 rtl:ml-3 h-5 w-5"
                     )}
                     aria-hidden="true"
                   />
-                  <FormattedMessage defaultMessage="Light" />
+                  {option.name}
                 </button>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  type="button"
-                  onClick={() => setTheme("dark")}
-                  className={classNames(
-                    active ? "bg-slate-50 dark:bg-slate-600/30" : "",
-                    theme === "dark" ? "text-sky-500" : "",
-                    "py-1.5 px-2 flex items-center text-sm w-full font-medium"
-                  )}
-                >
-                  <MoonIcon
-                    className={classNames(
-                      theme === "dark" ? "text-sky-500" : "text-gray-400",
-                      "ltr:mr-3 rtl:ml-3 h-5 w-5"
-                    )}
-                    aria-hidden="true"
-                  />
-                  <FormattedMessage defaultMessage="Dark" />
-                </button>
-              )}
-            </Menu.Item>
-          </div>
-          <div>
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  type="button"
-                  onClick={() => setTheme("system")}
-                  className={classNames(
-                    active ? "bg-slate-50 dark:bg-slate-600/30" : "",
-                    theme === "system" ? "text-sky-500" : "",
-                    "py-1.5 px-2 flex items-center text-sm w-full font-medium"
-                  )}
-                >
-                  <DesktopComputerIcon
-                    className={classNames(
-                      theme === "system" ? "text-sky-500" : "text-gray-400",
-                      "ltr:mr-3 rtl:ml-3 h-5 w-5"
-                    )}
-                    aria-hidden="true"
-                  />
-                  <FormattedMessage defaultMessage="System" />
-                </button>
-              )}
-            </Menu.Item>
-          </div>
+          ))}
         </Menu.Items>
       </Transition>
     </Menu>

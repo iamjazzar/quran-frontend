@@ -1,14 +1,11 @@
 import { DotsVerticalIcon } from "@heroicons/react/solid";
 import { apiClient } from "api/client";
-import { AxiosResponse } from "axios";
-import { soraPaths } from "lib/ssr/sora";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { ISora, ISoraParams } from "types/Sora";
-import { classNames } from "utils";
+import { ISora } from "types/Sora";
+import { classNames, localizedNumber } from "utils";
 import paths from "utils/paths";
 
 interface ISoraList {
@@ -20,8 +17,13 @@ const SoraDetail: NextPage<ISoraList> = ({ soras }) => {
   return (
     <>
       <div>
-        <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">
-          Pinned Projects
+        <h2
+          className={classNames(
+            locale === "en" ? "text-xs" : "text-md",
+            "text-gray-500 font-medium uppercase tracking-wide"
+          )}
+        >
+          <FormattedMessage defaultMessage="Quran Kareem Surahs list" />
         </h2>
         <ul
           role="list"
@@ -32,13 +34,18 @@ const SoraDetail: NextPage<ISoraList> = ({ soras }) => {
               <div
                 className={classNames(
                   "bg-pink-600",
-                  "flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md"
+                  "flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium ltr:rounded-l-md rtl:rounded-r-md"
                 )}
               >
                 {"PI"}
               </div>
-              <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
-                <div className="flex-1 px-4 py-2 text-sm truncate">
+              <div className="flex-1 flex items-center justify-between bg-white ltr:rounded-r-md rtl:rounded-l-md truncate">
+                <div
+                  className={classNames(
+                    locale === "en" ? "" : "text-xl",
+                    "flex-1 px-4 py-2 text-sm truncate"
+                  )}
+                >
                   {/* <span className="sr-only">{sora.name_en}</span> */}
                   <span className="sr-only">{sora.name_ar}</span>
                   <span className="sr-only">{sora.clean_name_ar}</span>
@@ -48,22 +55,27 @@ const SoraDetail: NextPage<ISoraList> = ({ soras }) => {
                       query: { number: sora.number },
                     }}
                   >
-                    <a className="text-gray-900 font-medium hover:text-gray-600">
-                      {/* <FormattedMessage
+                    <a className="text-gray-900 font-hafs leading-loose hover:text-gray-600">
+                      <FormattedMessage
                         defaultMessage="Surah {name}"
                         values={{
                           name: locale === "en" ? sora.name_en : sora.name_ar,
                         }}
-                      /> */}
+                      />
                     </a>
                   </Link>
-                  <p className="text-gray-500">
-                    {/* <FormattedMessage
+                  <p
+                    className={classNames(
+                      locale === "en" ? "text-xs" : "text-sm",
+                      "text-gray-500"
+                    )}
+                  >
+                    <FormattedMessage
                       defaultMessage="{number} Ayas"
                       values={{
-                        number: sora.ayas_count,
+                        number: localizedNumber(sora.ayas_count, locale),
                       }}
-                    /> */}
+                    />
                   </p>
                 </div>
                 <div className="flex-shrink-0 ltr:pr-2 rtl:pl-2">

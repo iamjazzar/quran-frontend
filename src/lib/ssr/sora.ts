@@ -22,8 +22,7 @@ export const soraPaths = async () => {
       for (const locale of ["ar", "en"]) {
         soraPaths.push({
           params: {
-            // Make sure the number is converted to string
-            number: `${sora.number}`,
+            number: sora.number.toString(),
           },
           locale,
         });

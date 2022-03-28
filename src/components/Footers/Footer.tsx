@@ -64,13 +64,13 @@ const Footer: NextComponentType = () => {
 
   return (
     <footer
-      className="bg-white dark:bg-gray-800"
+      className="lg:border-t lg:border-slate-900/10 dark:border-slate-50/[0.2]"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
         <FormattedMessage defaultMessage="Fasl Footer" />
       </h2>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 divide-y lg:divide-slate-900/10 dark:divide-slate-50/[0.06]">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
@@ -180,7 +180,7 @@ const Footer: NextComponentType = () => {
             </form>
           </div>
         </div>
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+        <div className="pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
               <FormattedMessage defaultMessage="Subscribe to our newsletter" />
@@ -214,7 +214,7 @@ const Footer: NextComponentType = () => {
             </div>
           </form>
         </div>
-        <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+        <div className="mt-8 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 rtl:space-x-reverse md:order-2">
             {navigation.social.map((item) => (
               <a

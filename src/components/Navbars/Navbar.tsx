@@ -1,21 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { NextComponentType } from "next";
 import { Disclosure } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import ThemeButton from "components/Buttons/ThemeButton";
+import LanguageButton from "components/Buttons/LanguageButton";
 import { FormattedMessage, useIntl } from "react-intl";
 import { classNames } from "utils";
 import Link from "next/link";
 import paths from "utils/paths";
 import Fasl from "components/SVGs/Fasl";
-import LanguageButton from "components/Buttons/LanguageButton";
 
 const Navbar: NextComponentType = () => {
   const { formatMessage } = useIntl();
-  const prevScrollY = useRef(0);
-  const [currentPosition, setCurrentPosition] = useState(0);
-  const [goingUp, setGoingUp] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+
   const navigation = [
     {
       name: formatMessage({ defaultMessage: "Read" }),
@@ -40,35 +40,57 @@ const Navbar: NextComponentType = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (prevScrollY.current < currentScrollY && goingUp) {
-        setGoingUp(false);
-      }
-      if (prevScrollY.current > currentScrollY && !goingUp) {
-        setGoingUp(true);
-      }
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
 
-      prevScrollY.current = currentScrollY;
-      setCurrentPosition(currentScrollY);
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      setIsVisible(scrollY <= lastScrollY);
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [goingUp]);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
 
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isVisible]);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   return (
-    <Disclosure as="header" className="contents z-50 bg-white dark:bg-gray-800">
+    <Disclosure as="header" className="contents z-50">
       {({ open }) => {
         return (
           <>
-            <div className="sticky top-0 px-2 sm:px-4 lg:divide-y lg:divide-gray-200 dark:lg:divide-gray-700 lg:px-8">
-              <div className="relative z-10 bg-white dark:bg-gray-800 h-16 flex justify-between">
+            <div
+              className={classNames(
+                isVisible ? "lg:translate-y-0" : "lg:-translate-y-11",
+                "group transition-none sticky z-40 lg:z-50 top-0 px-2 sm:px-4 lg:px-8 backdrop-blur-lg duration-500 bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75"
+              )}
+            >
+              <div
+                className={classNames(
+                  isVisible ? "lg:translate-y-0" : "lg:translate-y-11",
+                  "relative transition-none max-w-7xl mx-auto z-10 h-16 flex justify-between"
+                )}
+              >
                 <div className="relative z-10 px-2 flex lg:px-0">
                   <div className="flex-shrink-0 flex items-center">
                     <Link href={paths.home}>
                       <a>
-                        <Fasl className="h-8 w-12 text-slate-700 dark:text-white" />
+                        <Fasl className="h-8 w-12 " />
                       </a>
                     </Link>
                   </div>
@@ -88,7 +110,7 @@ const Navbar: NextComponentType = () => {
                       <input
                         id="search"
                         name="search"
-                        className="block w-full bg-white border dark:bg-gray-700 border-gray-300 dark:border-transparent rounded-md py-2 ltr:pl-10 rtl:pr-10 ltr:pr-3 rtl:pl-3 text-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 dark:focus:placeholder-gray-500 light:focus:ring-1 focus:ring-indigo-500 dark:focus:ring-white dark:focus:bg-white focus:border-indigo-500 dark:focus:border-white"
+                        className="block w-full bg-white border dark:bg-slate-700 border-gray-300 dark:border-transparent rounded-md py-2 ltr:pl-10 rtl:pr-10 ltr:pr-3 rtl:pl-3 text-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 dark:focus:placeholder-gray-500 light:focus:ring-1 focus:ring-indigo-500 dark:focus:ring-white dark:focus:bg-white focus:border-indigo-500 dark:focus:border-white"
                         placeholder={formatMessage({
                           defaultMessage: "search",
                         })}
@@ -108,17 +130,17 @@ const Navbar: NextComponentType = () => {
                     )}
                   </Disclosure.Button>
                 </div>
-                <div className="hidden lg:relative lg:z-10 ltr:lg:ml-4 rtl:lg:mr-4 lg:flex lg:items-center">
+                <div className="hidden lg:relative lg:z-10 ltr:lg:ml-4 rtl:lg:mr-4 lg:flex lg:items-center space-x-2 rtl:space-x-reverse">
                   <LanguageButton />
                   <ThemeButton />
                 </div>
               </div>
               <nav
                 className={classNames(
-                  goingUp || currentPosition <= 50
-                    ? "opacity-100"
-                    : "opacity-0",
-                  "transition-opacity ease-in delay-150 hidden lg:py-2 lg:flex lg:space-x-8 rtl:lg:space-x-reverse justify-center bg-white dark:bg-gray-800"
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-full opacity-0",
+                  "hidden transition-all lg:flex lg:py-2 lg:space-x-8 rtl:lg:space-x-reverse justify-center"
                 )}
                 aria-label="Global"
               >
@@ -129,7 +151,7 @@ const Navbar: NextComponentType = () => {
                     className={classNames(
                       item.current
                         ? "bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white"
-                        : "text-gray-900 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white",
+                        : "text-gray-900 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white",
                       "rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
                     )}
                     aria-current={item.current ? "page" : undefined}
@@ -142,7 +164,7 @@ const Navbar: NextComponentType = () => {
 
             <Disclosure.Panel
               as="nav"
-              className="lg:hidden"
+              className="sticky top-16 lg:hidden backdrop-blur-lg duration-500 bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75"
               aria-label="Global"
             >
               <div className="pt-2 pb-3 px-2 space-y-1">

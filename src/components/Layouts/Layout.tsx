@@ -4,10 +4,12 @@ import { NextComponentType } from "next";
 
 const Layout: NextComponentType = ({ children }) => {
   return (
-    <div className="bg-white dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto">
+    <div>
+      <div>
         <Navbar />
-        <main className="px-2 sm:px-4 lg:px-8">{children}</main>
+        <main className="px-2 sm:px-4 lg:px-8 max-w-7xl mx-auto">
+          {children}
+        </main>
         <Footer />
       </div>
     </div>

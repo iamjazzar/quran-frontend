@@ -22,8 +22,7 @@ export const juzPaths = async () => {
       for (const locale of ["ar", "en"]) {
         juzPaths.push({
           params: {
-            // Make sure the number is converted to string
-            number: `${juz.number}`,
+            number: juz.number.toString(),
           },
           locale,
         });

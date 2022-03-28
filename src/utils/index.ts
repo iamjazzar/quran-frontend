@@ -32,3 +32,15 @@ export function switchLanguage(newLanguage: string, router: NextRouter) {
   );
 
 }
+
+
+export function localizedNumber(number: number, locale?: string) {
+  if (!locale) {
+    return number.toLocaleString();
+  }
+
+  var id= ['۰','۱','۲','٣','٤','٥','٦','۷','۸','۹'];
+  return number.toString().replace(/[0-9]/g, function(w){
+   return id[+w]
+  });
+}

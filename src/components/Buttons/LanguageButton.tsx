@@ -29,7 +29,7 @@ const LanguageButton: NextComponentType = () => {
   return (
     <Menu as="div" className="relative inline-block text-left rtl:text-right">
       <div>
-        <Menu.Button className="inline-flex items-center p-1 border border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800 bg-transparent text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400">
+        <Menu.Button className="inline-flex items-center p-1 pb-1.5 pl-1.5 border border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2 bg-transparent text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400">
           <span className="sr-only">
             <FormattedMessage defaultMessage="Switch Language" />
           </span>

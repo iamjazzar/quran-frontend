@@ -31,7 +31,7 @@ const SoraDetail: NextPage<ISoraDetail> = ({ sora }) => {
   }
 
   return (
-    <>
+    <div className='px-2'>
       <span className="sr-only">{sora.name_en}</span>
       <span className="sr-only">{sora.name_ar}</span>
       <span className="sr-only">{sora.clean_name_ar}</span>
@@ -49,7 +49,7 @@ const SoraDetail: NextPage<ISoraDetail> = ({ sora }) => {
           <span key={aya.id}>{aya.text} </span>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

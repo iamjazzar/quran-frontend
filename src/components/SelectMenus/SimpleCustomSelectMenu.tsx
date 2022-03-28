@@ -26,7 +26,6 @@ const SimpleCustomSelectMenu = ({
 }: ILanguageSelector) => {
   const router = useRouter();
   const [selected, setSelected] = useState<IData>(data[0]);
-  console.log(selected);
 
   const onSelectionChange = (value: IData) => {
     setSelected(value);

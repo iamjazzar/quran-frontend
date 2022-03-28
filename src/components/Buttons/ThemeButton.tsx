@@ -44,7 +44,7 @@ const ThemeButton: NextComponentType = () => {
             theme === "system"
               ? "text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400"
               : "text-sky-400  hover:text-sky-500",
-            "inline-flex items-center p-1 border bg-transparent border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+            "inline-flex items-center p-1 pb-1.5 pl-1.5 border bg-transparent border-transparent rounded-full drop-shadow-sm focus:outline-none focus:ring-2"
           )}
         >
           <span className="sr-only">

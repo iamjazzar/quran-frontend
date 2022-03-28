@@ -1,0 +1,325 @@
+{
+  "+CwN9C": [
+    {
+      "type": 0,
+      "value": "حسب النظام"
+    }
+  ],
+  "+Ez+iF": [
+    {
+      "type": 0,
+      "value": "غير اللغة"
+    }
+  ],
+  "+pj5aT": [
+    {
+      "type": 0,
+      "value": "فصل"
+    }
+  ],
+  "0OwrsE": [
+    {
+      "type": 0,
+      "value": "الدليل"
+    }
+  ],
+  "0t/SdX": [
+    {
+      "type": 1,
+      "value": "number"
+    },
+    {
+      "type": 0,
+      "value": " آية"
+    }
+  ],
+  "3cc4Ct": [
+    {
+      "type": 0,
+      "value": "فاتح"
+    }
+  ],
+  "460C4x": [
+    {
+      "type": 0,
+      "value": "ملفات تعريف الارتباط"
+    }
+  ],
+  "5MDGuM": [
+    {
+      "type": 0,
+      "value": "أدخل بريدك الإلكتروني"
+    }
+  ],
+  "5b+4gS": [
+    {
+      "type": 0,
+      "value": "ورش عن نافع"
+    }
+  ],
+  "7oFrM6": [
+    {
+      "type": 0,
+      "value": "قانوني"
+    }
+  ],
+  "8FmVPw": [
+    {
+      "type": 0,
+      "value": "تذييل موقع فصل"
+    }
+  ],
+  "9AcATF": [
+    {
+      "type": 0,
+      "value": "وظائف"
+    }
+  ],
+  "FqQoQa": [
+    {
+      "type": 0,
+      "value": "اشترك في نشرتنا الإخبارية"
+    }
+  ],
+  "G/LQ4q": [
+    {
+      "type": 0,
+      "value": "اللغة والرواية"
+    }
+  ],
+  "GZJpDf": [
+    {
+      "type": 0,
+      "value": "التحليلات"
+    }
+  ],
+  "H0Wg6p": [
+    {
+      "type": 0,
+      "value": "حقوق النشر "
+    },
+    {
+      "style": {
+        "parsedOptions": {
+          "year": "numeric"
+        },
+        "pattern": "yyyy",
+        "type": 1
+      },
+      "type": 3,
+      "value": "year"
+    }
+  ],
+  "HqRNN8": [
+    {
+      "type": 0,
+      "value": "الدعم"
+    }
+  ],
+  "HwugaQ": [
+    {
+      "type": 0,
+      "value": "غير الألوان"
+    }
+  ],
+  "INBcZm": [
+    {
+      "type": 0,
+      "value": "الجُزءُ "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "IbrSk1": [
+    {
+      "type": 0,
+      "value": "تعلم"
+    }
+  ],
+  "Ipn3AK": [
+    {
+      "type": 0,
+      "value": "حفص عن عاصم"
+    }
+  ],
+  "JEe7dV": [
+    {
+      "type": 0,
+      "value": "تدبَّر"
+    }
+  ],
+  "JkLHGw": [
+    {
+      "type": 0,
+      "value": "الموقع"
+    }
+  ],
+  "O9mDkA": [
+    {
+      "type": 0,
+      "value": "التسويق"
+    }
+  ],
+  "QvrNDj": [
+    {
+      "type": 0,
+      "value": ". جميع الحقوق محفوظة."
+    }
+  ],
+  "Uu3DS2": [
+    {
+      "type": 0,
+      "value": "الشركاء"
+    }
+  ],
+  "W5RhGX": [
+    {
+      "type": 0,
+      "value": "آخر الأخبار والمقالات والموارد نرسلها إلى بريدك الإلكتروني أسبوعيًا"
+    }
+  ],
+  "XfK9hy": [
+    {
+      "type": 0,
+      "value": "الإسناد"
+    }
+  ],
+  "asqGnV": [
+    {
+      "type": 0,
+      "value": "حلول"
+    }
+  ],
+  "cXBJ7U": [
+    {
+      "type": 0,
+      "value": "الخصوصية"
+    }
+  ],
+  "d2WUNt": [
+    {
+      "type": 0,
+      "value": "الرواية"
+    }
+  ],
+  "en1iCN": [
+    {
+      "type": 0,
+      "value": "سُورة "
+    },
+    {
+      "type": 1,
+      "value": "name"
+    }
+  ],
+  "filwqD": [
+    {
+      "type": 0,
+      "value": "اقرَأ"
+    }
+  ],
+  "g5pX+a": [
+    {
+      "type": 0,
+      "value": "عنا"
+    }
+  ],
+  "gczcC5": [
+    {
+      "type": 0,
+      "value": "اشترك"
+    }
+  ],
+  "gjBiyj": [
+    {
+      "type": 0,
+      "value": "جاري التحميل..."
+    }
+  ],
+  "hBhV8k": [
+    {
+      "type": 0,
+      "value": "قائمة الخيارات"
+    }
+  ],
+  "hJZwTS": [
+    {
+      "type": 0,
+      "value": "البريد الإلكتروني"
+    }
+  ],
+  "isGKnz": [
+    {
+      "type": 0,
+      "value": "التوثيق"
+    }
+  ],
+  "navUB2": [
+    {
+      "type": 0,
+      "value": "سور القرآن الكريم"
+    }
+  ],
+  "qyQ7t4": [
+    {
+      "type": 0,
+      "value": "ابحث"
+    }
+  ],
+  "tOdNiY": [
+    {
+      "type": 0,
+      "value": "غامق"
+    }
+  ],
+  "tv5FG3": [
+    {
+      "type": 0,
+      "value": "مقالات"
+    }
+  ],
+  "uizmax": [
+    {
+      "type": 0,
+      "value": "صحافة"
+    }
+  ],
+  "xK7rmd": [
+    {
+      "type": 0,
+      "value": "أفكار"
+    }
+  ],
+  "xkr+zo": [
+    {
+      "type": 0,
+      "value": "شروط الاستخدام"
+    }
+  ],
+  "xmcVZ0": [
+    {
+      "type": 0,
+      "value": "ابحث"
+    }
+  ],
+  "y1Z3or": [
+    {
+      "type": 0,
+      "value": "اللغة"
+    }
+  ],
+  "zhvWvI": [
+    {
+      "type": 0,
+      "value": "استَمِع"
+    }
+  ],
+  "zzeSIr": [
+    {
+      "type": 0,
+      "value": "حالة واجهة برمجة التطبيقات"
+    }
+  ]
+}

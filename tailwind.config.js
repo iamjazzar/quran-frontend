@@ -4,10 +4,11 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
-    fontFamily: {
+    extend: {    fontFamily: {
       hafs: ['UthmanicHafs', ...defaultTheme.fontFamily.sans ],
+      arabicSans: ['Noto Naskh Arabic', ...defaultTheme.fontFamily.sans],
     },
-    extend: {},
+},
   },
   plugins: [
     require('@tailwindcss/forms'),

@@ -145,19 +145,19 @@ const Navbar: NextComponentType = () => {
                 aria-label="Global"
               >
                 {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white"
-                        : "text-gray-900 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white",
-                      "rounded-md py-2 px-3 inline-flex items-center font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </a>
+                  <Link key={item.name} href={item.href}>
+                    <a
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white"
+                          : "text-gray-900 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white",
+                        "rounded-md py-2 px-3 inline-flex items-center font-medium"
+                      )}
+                      aria-current={item.current ? "page" : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </Link>
                 ))}
               </nav>
             </div>

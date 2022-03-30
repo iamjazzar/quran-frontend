@@ -56,7 +56,7 @@ const Footer: NextComponentType = () => {
       },
       {
         name: "GitHub",
-        href: "http://github.com/visionPalestine/",
+        href: paths.github,
         icon: GithubIcon,
       },
     ],

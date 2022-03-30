@@ -24,6 +24,7 @@ const paths = {
   termsOfService: '/terms-of-service',
   siteMap: '/sitemap.xml',
   privacyPolicy: '/privacy-policy',
+  github: 'https://github.com/iamjazzar/quran',
   api,
   aya,
   juz,

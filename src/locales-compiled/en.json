@@ -23,6 +23,16 @@
       "value": "Guides"
     }
   ],
+  "0t/SdX": [
+    {
+      "type": 1,
+      "value": "number"
+    },
+    {
+      "type": 0,
+      "value": " Ayas"
+    }
+  ],
   "3cc4Ct": [
     {
       "type": 0,
@@ -112,6 +122,12 @@
       "value": "Switch theme"
     }
   ],
+  "I5NMJ8": [
+    {
+      "type": 0,
+      "value": "More"
+    }
+  ],
   "INBcZm": [
     {
       "type": 0,
@@ -158,6 +174,16 @@
       "value": ". All Rights Reserved."
     }
   ],
+  "TIqTkG": [
+    {
+      "type": 1,
+      "value": "number"
+    },
+    {
+      "type": 0,
+      "value": " Surahs"
+    }
+  ],
   "Uu3DS2": [
     {
       "type": 0,
@@ -174,6 +200,16 @@
     {
       "type": 0,
       "value": "Attributions"
+    }
+  ],
+  "Z8QV9/": [
+    {
+      "type": 1,
+      "value": "number"
+    },
+    {
+      "type": 0,
+      "value": " Juz'"
     }
   ],
   "asqGnV": [
@@ -234,16 +270,16 @@
       "value": "Email address"
     }
   ],
+  "inN8Z0": [
+    {
+      "type": 0,
+      "value": "Quran Kareem Chapters"
+    }
+  ],
   "isGKnz": [
     {
       "type": 0,
       "value": "Documentation"
-    }
-  ],
-  "navUB2": [
-    {
-      "type": 0,
-      "value": "Quran Kareem Surahs list"
     }
   ],
   "qyQ7t4": [

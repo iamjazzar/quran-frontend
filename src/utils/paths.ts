@@ -2,6 +2,7 @@ const api = {
   aya: '/api/quran/aya/',
   juz: '/api/quran/juz/',
   sora: '/api/quran/sora/',
+  quranMeta: 'api/quran/metadata/',
 };
 
 const aya = {

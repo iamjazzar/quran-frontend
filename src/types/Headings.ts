@@ -6,6 +6,6 @@ export interface IHeadingData {
 export interface IHeadingAction {
   title: string;
   Icon: any;
-  collapsible?: boolean;
+  collapsible: boolean;
   type?: 'submit' | 'reset' | 'button' | undefined;
 }

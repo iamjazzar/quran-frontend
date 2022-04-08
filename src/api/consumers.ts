@@ -3,7 +3,6 @@ import path from 'path';
 import { getFormData } from 'utils';
 import { IFiltersType } from 'types/Filters';
 import { FormWriterType } from 'types/generic';
-import { IAya } from 'types/Aya';
 
 export interface ListResponse<Type> {
   next: string | null;
@@ -82,7 +81,7 @@ export class Consumer<ReaderType, WriterType, SubType = {}> {
   protected get(
     url: string,
     cookie?: string,
-  ): Promise<AxiosResponse<ReaderType | IFiltersType | SubType[] | ListResponse<ReaderType>>> {
+  ): Promise<AxiosResponse<ReaderType | IFiltersType | SubType | SubType[] | ListResponse<ReaderType>>> {
     return this._axios.get(url, {
       headers: cookie ? { cookie: cookie } : undefined,
     });
@@ -97,5 +96,21 @@ export class SoraConsumer<ReaderType, WriterType, SubType> extends Consumer<
   ayas(oid: number, cookie?: string): Promise<AxiosResponse<SubType[]>> {
     const url = path.join(this.url, `${oid}`, 'ayas', '/');
     return this.get(url, cookie) as Promise<AxiosResponse<SubType[]>>;
+  }
+}
+
+export class SearchConsumer<ReaderType, WriterType, SubType> extends Consumer<
+  ReaderType,
+  WriterType,
+  SubType
+> {
+  phraseSearch(term: string, cookie?: string): Promise<AxiosResponse<ListResponse<ReaderType>>>  {
+    const url = path.join(this.url, "/", `?search_simple_query_string=${term}`);
+    return this.get(url, cookie) as Promise<AxiosResponse<ListResponse<ReaderType>>>;
+  }
+
+  suggest(term: string, cookie?: string): Promise<AxiosResponse<SubType>>  {
+    const url = path.join(this.url, 'suggest', '/', `?clean_text__completion=${term}`);
+    return this.get(url, cookie) as Promise<AxiosResponse<SubType>>;
   }
 }

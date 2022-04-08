@@ -17,6 +17,12 @@
       "value": "Fasl"
     }
   ],
+  "0BUTMv": [
+    {
+      "type": 0,
+      "value": "Search..."
+    }
+  ],
   "0OwrsE": [
     {
       "type": 0,
@@ -75,6 +81,12 @@
       "value": "Jobs"
     }
   ],
+  "Do1Pfd": [
+    {
+      "type": 0,
+      "value": "Chapters"
+    }
+  ],
   "FJRzyb": [
     {
       "type": 0,
@@ -122,6 +134,12 @@
       "value": "Support"
     }
   ],
+  "Hv0XJn": [
+    {
+      "type": 0,
+      "value": "Suggestions"
+    }
+  ],
   "HwugaQ": [
     {
       "type": 0,
@@ -132,6 +150,20 @@
     {
       "type": 0,
       "value": "More"
+    }
+  ],
+  "IFpyF4": [
+    {
+      "type": 0,
+      "value": "Want to try our "
+    },
+    {
+      "type": 1,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": " tool."
     }
   ],
   "INBcZm": [
@@ -174,10 +206,26 @@
       "value": "Marketing"
     }
   ],
+  "PxECDP": [
+    {
+      "type": 0,
+      "value": "Advanced Search"
+    }
+  ],
   "QvrNDj": [
     {
       "type": 0,
       "value": ". All Rights Reserved."
+    }
+  ],
+  "SCFeHW": [
+    {
+      "type": 1,
+      "value": "number"
+    },
+    {
+      "type": 0,
+      "value": " results"
     }
   ],
   "TIqTkG": [
@@ -190,10 +238,22 @@
       "value": " Surahs"
     }
   ],
+  "TbtOHQ": [
+    {
+      "type": 0,
+      "value": "Verses"
+    }
+  ],
   "Uu3DS2": [
     {
       "type": 0,
       "value": "Partners"
+    }
+  ],
+  "VTKoli": [
+    {
+      "type": 0,
+      "value": "We couldn’t find anything with that term. Please try another term."
     }
   ],
   "W5RhGX": [
@@ -206,6 +266,12 @@
     {
       "type": 0,
       "value": "This website is still in beta version. If you face any issue please drop us a note."
+    }
+  ],
+  "XP1mDG": [
+    {
+      "type": 0,
+      "value": "Search for verses, chapters, or words"
     }
   ],
   "XfK9hy": [
@@ -242,6 +308,12 @@
       "value": "Riwaya"
     }
   ],
+  "eXaYJK": [
+    {
+      "type": 0,
+      "value": "Quickly access verses and chapters by running a global search."
+    }
+  ],
   "en1iCN": [
     {
       "type": 0,
@@ -256,6 +328,20 @@
     {
       "type": 0,
       "value": "Read"
+    }
+  ],
+  "fvhcPB": [
+    {
+      "type": 0,
+      "value": "Or use our "
+    },
+    {
+      "type": 1,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": " tool."
     }
   ],
   "g5pX+a": [
@@ -282,6 +368,12 @@
       "value": "Email address"
     }
   ],
+  "hX5PAb": [
+    {
+      "type": 0,
+      "value": "No results found"
+    }
+  ],
   "inN8Z0": [
     {
       "type": 0,
@@ -298,6 +390,12 @@
     {
       "type": 0,
       "value": "search"
+    }
+  ],
+  "sLL9ZT": [
+    {
+      "type": 0,
+      "value": "Juz's"
     }
   ],
   "tOdNiY": [
@@ -346,12 +444,6 @@
     {
       "type": 0,
       "value": "Language"
-    }
-  ],
-  "zhvWvI": [
-    {
-      "type": 0,
-      "value": "Listen"
     }
   ],
   "zzeSIr": [

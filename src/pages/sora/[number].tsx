@@ -10,17 +10,11 @@ import { ISora, ISoraParams } from "types/Sora";
 
 interface ISoraDetail {
   sora: ISora;
+  ayas: IAya[];
 }
 
-const SoraDetail: NextPage<ISoraDetail> = ({ sora }) => {
+const SoraDetail: NextPage<ISoraDetail> = ({ sora, ayas }) => {
   const router = useRouter();
-  const [ayas, setAyas] = useState<IAya[]>([]);
-
-  useEffect(() => {
-    apiClient.quranSora
-      .ayas(sora.number)
-      .then((r: AxiosResponse<IAya[]>) => setAyas(r.data));
-  }, []);
 
   if (router.isFallback) {
     return (
@@ -31,7 +25,7 @@ const SoraDetail: NextPage<ISoraDetail> = ({ sora }) => {
   }
 
   return (
-    <div className='px-2'>
+    <div className="px-2">
       <span className="sr-only">{sora.name_en}</span>
       <span className="sr-only">{sora.name_ar}</span>
       <span className="sr-only">{sora.clean_name_ar}</span>
@@ -66,7 +60,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { number }: { number: string } = params as ISoraParams;
 
   const { data } = await apiClient.quranSora.retrieve(number);
-  return data ? { props: { sora: data } } : { notFound: true };
+  const resp = await apiClient.quranSora.ayas(data.number);
+
+  return data ? { props: { sora: data, ayas: resp.data } } : { notFound: true };
 };
 
 export default SoraDetail;

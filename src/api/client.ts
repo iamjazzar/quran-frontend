@@ -1,9 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { IAya, IAyaWriter } from 'types/Aya';
 import paths from 'utils/paths';
-import { Consumer, SoraConsumer } from 'api/consumers';
+import { Consumer, SearchConsumer, SoraConsumer } from 'api/consumers';
 import { IJuz, IJuzWriter } from 'types/Juz';
 import { ISora, ISoraWriter } from 'types/Sora';
+import { IAyaSearchSuggest } from 'types/AyaSearch';
 
 class ApiClient {
   readonly _axios: AxiosInstance;
@@ -36,6 +37,11 @@ class ApiClient {
 
   get quranAya(): Consumer<IAya, IAyaWriter> {
     return new Consumer(paths.api.aya);
+  }
+
+
+  get ayaSearch(): SearchConsumer<IAya, IAyaWriter, IAyaSearchSuggest> {
+    return new SearchConsumer(paths.api.search.aya);
   }
 
   public get(url: string, cookie?: string): Promise<AxiosResponse> {

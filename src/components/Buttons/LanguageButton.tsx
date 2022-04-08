@@ -54,8 +54,8 @@ const LanguageButton: NextComponentType = () => {
                   type="button"
                   onClick={() => switchLanguage(language.key, router)}
                   className={classNames(
-                    active ? "bg-slate-50 dark:bg-slate-600/30" : "",
-                    router.locale === language.key ? "text-sky-500" : "",
+                    active && "bg-slate-50 dark:bg-slate-600/30",
+                    router.locale === language.key && "text-sky-500",
                     "py-1.5 px-2 flex items-center text-sm w-full font-medium"
                   )}
                 >

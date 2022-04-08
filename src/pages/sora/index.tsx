@@ -83,7 +83,7 @@ const SoraDetail: NextPage<ISoraList> = ({ soras, meta }) => {
                     <span className="absolute inset-0" aria-hidden="true" />
                     <p
                       className={classNames(
-                        locale == "ar" ? "font-hafs text-xl" : "",
+                        locale === "ar" && "font-hafs text-xl",
                         "text-sm font-medium"
                       )}
                     >

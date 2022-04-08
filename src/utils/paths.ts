@@ -2,6 +2,9 @@ const api = {
   aya: '/api/quran/aya/',
   juz: '/api/quran/juz/',
   sora: '/api/quran/sora/',
+  search: {
+    aya: 'api/search/aya/',
+  },
   quranMeta: 'api/quran/metadata/',
 };
 
@@ -21,6 +24,7 @@ const sora = {
 
 const paths = {
   home: '/',
+  search: '/search',
   termsOfService: '/terms-of-service',
   siteMap: '/sitemap.xml',
   privacyPolicy: '/privacy-policy',

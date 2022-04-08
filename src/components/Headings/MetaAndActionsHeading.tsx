@@ -22,7 +22,7 @@ const MetaAndActionsHeading = ({
   return (
     <div className="lg:flex lg:items-center lg:justify-between">
       <div className="flex-1 min-w-0 mt-5 mb-16">
-        <h2 className="text-2xl font-bold leading-7 text-white sm:text-3xl sm:truncate">
+        <h2 className="text-2xl font-bold leading-7 sm:text-3xl sm:truncate">
           {title}
         </h2>
         {data && (
@@ -32,11 +32,11 @@ const MetaAndActionsHeading = ({
                 key={item.text}
                 className={classNames(
                   locale === "ar" ? "text-lg" : "text-sm",
-                  "mt-2 flex items-center text-gray-300"
+                  "mt-2 flex items-center dark:text-gray-300"
                 )}
               >
                 <item.Icon
-                  className="flex-shrink-0 ltr:mr-1.5 rtl:ml-1.5 h-5 w-5 text-gray-500"
+                  className="flex-shrink-0 ltr:mr-1.5 rtl:ml-1.5 h-5 w-5 dark:text-gray-500"
                   aria-hidden="true"
                 />
                 {item.text}
@@ -50,9 +50,7 @@ const MetaAndActionsHeading = ({
           {actions.map((action) => (
             <span
               key={action.title}
-              className={classNames(
-                action.collapsible ? "hidden sm:block" : ""
-              )}
+              className={classNames(action.collapsible && "hidden sm:block")}
             >
               <button
                 type={action.type || "button"}
@@ -99,7 +97,7 @@ const MetaAndActionsHeading = ({
                         <a
                           href="#"
                           className={classNames(
-                            active ? "bg-gray-100" : "",
+                            active && "bg-gray-100",
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >

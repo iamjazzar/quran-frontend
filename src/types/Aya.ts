@@ -20,3 +20,7 @@ export interface IAya {
   created: string;
   updated: string;
 }
+
+export type IPageGroup = {
+  [key: number]: IAya[];
+};

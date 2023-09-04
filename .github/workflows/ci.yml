@@ -13,7 +13,7 @@ jobs:
     name: "Check lock file"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Validate lock file
         run: |
@@ -22,7 +22,7 @@ jobs:
     name: "Typescript and Linters"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Cache node modules
         uses: actions/cache@v3
         env:
